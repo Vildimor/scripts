@@ -2251,8 +2251,7 @@ do
         currentPage.Value = 1
         currentPage.Parent = lib.Main
 
-        -- Dragging
-        local dragEvents = utility:InitDragging(lib.Main,lib.Main.Contents.Top.Drag)
+        
 
         -- Section update event
         local sectionUpdateEvent do
