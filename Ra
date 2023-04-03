@@ -1,4 +1,4 @@
--[[
+--[[
 
 â–‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•—â–‘â–‘â–‘â–‘â–‘â–‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–‘â–‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—
 â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—â•šâ•â•â–ˆâ–ˆâ•”â•â•â•â–ˆâ–ˆâ•‘â–‘â–‘â–‘â–‘â–‘â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—â–ˆâ–ˆâ•”â•â•â•â•â•
@@ -2277,6 +2277,7 @@ do
         currentPage.Value = 1
         currentPage.Parent = lib.Main
 
+        -- Dragging
         
 
         -- Section update event
@@ -6730,6 +6731,6 @@ do
     end
 end
 
-print("Script Loaded - ..vildimor.. -- Pog")
+print("Atlas UI Library v"..VERSION.." by RoadToGlory#9879 has initiated")
 
 return Library
