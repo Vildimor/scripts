@@ -31,7 +31,7 @@ Color = Info
             ui:Destroy()
 		end
     end
-	
+
 
     
     local UserInputService = game:GetService("UserInputService")
