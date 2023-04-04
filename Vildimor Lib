@@ -1021,85 +1021,27 @@ Color = Info
     --------------------------------------------------------------------
 
     local ScreenGui = Instance.new("ScreenGui")
-    local Toggle = Instance.new("TextButton")
-    local UICornerT = Instance.new("UICorner")
-	
-    ScreenGui.Name = "ScreenGui"
-    ScreenGui.Parent = game.CoreGui
-    
-    Toggle.Name = "Toggle"
-    Toggle.Parent = ScreenGui
-    Toggle.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
-    Toggle.Position = UDim2.new(0.015, 0, 0.03, 0)
-    Toggle.Size = UDim2.new(0, 50, 0, 50)
-    Toggle.Font = Enum.Font.GothamBlack
-	Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Toggle.BorderSizePixel = 0
-	Toggle.BackgroundTransparency = 0.9
-	Toggle.TextSize = 60.000
-    Toggle.TextColor3 = Color3.fromRGB(999, 0, 0)
-    Toggle.TextScaled = false
-	Toggle.TextWrapped = true
-	Toggle.Active = true
-	Toggle.Draggable = true
-    Toggle.MouseButton1Down:connect(function()
-        game:GetService("VirtualInputManager"):SendKeyEvent(true,277,false,game)
-        game:GetService("VirtualInputManager"):SendKeyEvent(false,277,false,game)
+local Toggle = Instance.new("ImageButton")
+local UICornerT = Instance.new("UICorner")
 
-    end)
-	
-	
-	
-	Toggle.Text = "㊀" 
-        spawn(function()
-            while wait() do
-                pcall(function()
-                    wait(0.1) 
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(999, 0, 0)}					
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(999, 855, 0)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(999, 999, 0)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(0, 999, 0)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(0, 999, 999)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(0, 855, 999)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(999, 0, 855)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        Toggle,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {TextColor3 = Color3.fromRGB(999, 0, 855)}
-                    ):Play() 
-                    wait(.5)
-                end)
-            end
-        end)
-		
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.CoreGui
 
-	
-	UICornerT.CornerRadius = UDim.new(0, 50)
-	UICornerT.Parent = Toggle
+Toggle.Name = "Toggle"
+Toggle.Parent = ScreenGui
+Toggle.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
+Toggle.Position = UDim2.new(0.015, 0, 0.03, 0)
+Toggle.Size = UDim2.new(0, 50, 0, 50)
+Toggle.Image = "rbxassetid://12997512889"
+Toggle.BackgroundTransparency = 1
+Toggle.BorderSizePixel = 0
+Toggle.Active = true
+Toggle.Draggable = true
+
+Toggle.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, 277, false, game)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, 277, false, game)
+end)
+
+UICornerT.CornerRadius = UDim.new(0, 50)
+UICornerT.Parent = Toggle
