@@ -1023,8 +1023,6 @@ Color = Info
     local ScreenGui = Instance.new("ScreenGui")
 local Toggle = Instance.new("ImageButton")
 local UICornerT = Instance.new("UICorner")
-local imageLabel = Instance.new('ImageLabel')
-local Decal = decal or 12997512844
 
 ScreenGui.Name = "ScreenGui"
 ScreenGui.Parent = game.CoreGui
@@ -1043,17 +1041,8 @@ Toggle.TextScaled = false
 Toggle.TextWrapped = true
 Toggle.Active = true
 Toggle.Draggable = true
+Toggle.Image = rbxassetid://12997512844
 Toggle.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,277,false,game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false,277,false,game)
 end)
-
-imageLabel.Name = 'image'	
-imageLabel.Size = UDim2.new(1, 0, 1, 0)	
-imageLabel.Position = UDim2.new(0.015, 0, 0.03, 0)
-imageLabel.BackgroundTransparency = 1	
-imageLabel.Image = "rbxassetid://"..tostring(Decal)
-imageLabel.Parent = Toggle
-
-UICornerT.CornerRadius = UDim.new(0, 50)
-UICornerT.Parent = Toggle
