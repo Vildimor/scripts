@@ -2032,30 +2032,31 @@ Color = Info
     end
     
     --------------------------------------------------------------------
+-- create ScreenGui instance
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game:GetService("CoreGui")
 
-    local ScreenGui = Instance.new("ScreenGui")
-local Toggle = Instance.new("ImageButton")
-local UICornerT = Instance.new("UICorner")
+-- create ImageButton instance
+local imageButton = Instance.new("ImageButton")
+imageButton.Size = UDim2.new(0, 100, 0, 100)
+imageButton.Position = UDim2.new(0.5, -50, 0.5, -50)
+imageButton.AnchorPoint = Vector2.new(0.5, 0.5)
+imageButton.BackgroundTransparency = 0.9
+imageButton.BorderSizePixel = 0
+imageButton.Active = true
+imageButton.Draggable = true
+imageButton.Parent = screenGui
 
-ScreenGui.Name = "ScreenGui"
-ScreenGui.Parent = game.CoreGui
+-- create ImageLabel instance to cover ImageButton
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.Size = UDim2.new(1, 0, 1, 0)
+imageLabel.BackgroundTransparency = 1
+imageLabel.Image = "rbxassetid://12997512889"
+imageLabel.Parent = imageButton
 
-Toggle.Name = "Toggle"
-Toggle.Parent = ScreenGui
-Toggle.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
-Toggle.Position = UDim2.new(0.015, 0, 0.03, 0)
-Toggle.Size = UDim2.new(0, 50, 0, 50)
-Toggle.Font = Enum.Font.GothamBlack
-Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Toggle.BorderSizePixel = 0
-Toggle.BackgroundTransparency = 0.9
-Toggle.TextSize = 60.000
-Toggle.TextScaled = false
-Toggle.TextWrapped = true
-Toggle.Active = true
-Toggle.Draggable = true
-Toggle.Image = rbxassetid://12997512844
-Toggle.MouseButton1Down:connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,277,false,game)
-    game:GetService("VirtualInputManager"):SendKeyEvent(false,277,false,game)
+-- connect MouseButton1Down event to send key press event
+imageButton.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, 277, false, game)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, 277, false, game)
 end)
+
