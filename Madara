@@ -26,8 +26,7 @@ coroutine.wrap(
 				Flux.HueSelectionPosition = 0
 			end
 		end
-	end
-)()
+	end)
 
 local function MakeDraggable(topbarobject, object)
 	local Dragging = nil
