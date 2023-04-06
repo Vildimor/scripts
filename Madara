@@ -20,13 +20,14 @@ coroutine.wrap(
 
 			if Flux.RainbowColorValue >= 1 then
 				Flux.RainbowColorValue = 0
-			end
+			end)
 
 			if Flux.HueSelectionPosition == 80 then
 				Flux.HueSelectionPosition = 0
 			end
 		end
-	end)
+	end
+)()
 
 local function MakeDraggable(topbarobject, object)
 	local Dragging = nil
