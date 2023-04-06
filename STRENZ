@@ -1,0 +1,146 @@
+-- Made By Strenz
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+
+
+local MainHold = {}
+   
+      local StrenzNotify = Instance.new("ScreenGui")
+      StrenzNotify.Name = "StrenzNotify"
+      StrenzNotify.Parent = game.CoreGui
+      StrenzNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+function MainHold:Notify(text, discription, img)
+
+   local HolderFrame = Instance.new("Frame")
+   local HolderFrameLayout = Instance.new("UIListLayout")
+   local MainFrame = Instance.new("Frame")
+   local MainFrameCorner = Instance.new("UICorner")
+   local StrenzImage = Instance.new("ImageLabel")
+   local StrenzImageCorner = Instance.new("UICorner")
+   local StrenzTitle = Instance.new("TextLabel")
+   local StrenzDesc = Instance.new("TextLabel")
+   local TimeFrame = Instance.new("Frame")
+   local TimeFrameCorner = Instance.new("UICorner")
+   
+   HolderFrame.Name = "HolderFrame"
+   HolderFrame.Parent = game.CoreGui:FindFirstChild("StrenzNotify")
+   HolderFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+   HolderFrame.BackgroundTransparency = 1.000
+   HolderFrame.Position = UDim2.new(0.844646633, 0, 0.485636115, 0)
+   HolderFrame.Size = UDim2.new(0.14975509, 0, 0.470588207, 0)
+   HolderFrame.ZIndex = 98
+   
+   HolderFrameLayout.Name = "HolderFrameLayout"
+   HolderFrameLayout.Parent = HolderFrame
+   HolderFrameLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+   HolderFrameLayout.SortOrder = Enum.SortOrder.LayoutOrder
+   HolderFrameLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+   HolderFrameLayout.Padding = UDim.new(0, 5)
+   
+   MainFrame.Name = "MainFrame"
+   MainFrame.Parent = game.CoreGui.StrenzNotify:FindFirstChild("HolderFrame")
+   MainFrame.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+   MainFrame.Position = UDim2.new(-0.219626144, 0, 0.715116322, 0)
+   MainFrame.Size = UDim2.new(1.21962595, 0, 0.284883738, 0)
+   MainFrame.ZIndex = 99
+   
+   MainFrameCorner.CornerRadius = UDim.new(0, 5)
+   MainFrameCorner.Name = "MainFrameCorner"
+   MainFrameCorner.Parent = MainFrame
+   
+   StrenzImage.Name = "StrenzImage"
+   StrenzImage.Parent = MainFrame
+   StrenzImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+   StrenzImage.BackgroundTransparency = 1.000
+   StrenzImage.Position = UDim2.new(0.0344827585, 0, 0.163265303, 0)
+   StrenzImage.Size = UDim2.new(0.260536402, 0, 0.673469365, 0)
+   StrenzImage.Image = img or ""
+   
+   StrenzImageCorner.CornerRadius = UDim.new(0, 5)
+   StrenzImageCorner.Name = "StrenzImageCorner"
+   StrenzImageCorner.Parent = StrenzImage
+   
+   StrenzTitle.Name = "StrenzTitle"
+   StrenzTitle.Parent = MainFrame
+   StrenzTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+   StrenzTitle.BackgroundTransparency = 1.000
+   StrenzTitle.Position = UDim2.new(0.541121364, 0, 0.0695263371, 0)
+   StrenzTitle.Size = UDim2.new(0.165342644, 0, 0.168849692, 0)
+   StrenzTitle.Font = Enum.Font.Gotham
+   StrenzTitle.Text = text or "Project Meow"
+   StrenzTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+   StrenzTitle.TextSize = 17.000
+   
+   StrenzDesc.Name = "StrenzDesc"
+   StrenzDesc.Parent = MainFrame
+   StrenzDesc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+   StrenzDesc.BackgroundTransparency = 1.000
+   StrenzDesc.Position = UDim2.new(0.507301271, 0, 0.427090406, 0)
+   StrenzDesc.Size = UDim2.new(0.232982814, 0, 0.139052689, 0)
+   StrenzDesc.Font = Enum.Font.Gotham
+   StrenzDesc.Text = discription or "your text here!"
+   StrenzDesc.TextColor3 = Color3.fromRGB(255, 255, 255)
+   StrenzDesc.TextSize = 14.000
+   
+   TimeFrame.Name = "TimeFrame"
+   TimeFrame.Parent = MainFrame
+   TimeFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+   TimeFrame.BackgroundTransparency = 0.750
+   TimeFrame.Position = UDim2.new(0.0409998819, 0, 0.909864724, 0)
+   TimeFrame.Size = UDim2.new(0.925369203, 0, 0.0397293456, 0)
+   
+   TimeFrameCorner.CornerRadius = UDim.new(0, 2)
+   TimeFrameCorner.Name = "TimeFrameCorner"
+   TimeFrameCorner.Parent = TimeFrame
+
+   if StrenzImage.Image == "" then
+      StrenzDesc.Position = UDim2.new(0.383307576, 0, 0.405625135, 0)
+      StrenzTitle.Position = UDim2.new(0.417127669, 0, 0.0909916162, 0)
+   end
+
+   TweenService:Create(
+      TimeFrame,
+      TweenInfo.new(10, Enum.EasingStyle.Quad),
+      {Size = UDim2.new(0, 0, 0.0397293419, 0)}
+  ):Play()
+
+  repeat task.wait() until TimeFrame.Size == UDim2.new(0, 0, 0.0397293419, 0)
+
+  StrenzTitle.Visible = false
+  StrenzDesc.Visible = false
+  StrenzImage.Visible = false
+  TimeFrame.Visible = false
+
+  TweenService:Create(
+      MainFrame,
+      TweenInfo.new(.3, Enum.EasingStyle.Quad),
+      {BackgroundTransparency = 1}
+  ):Play()
+
+  repeat task.wait() until MainFrame.BackgroundTransparency == 1
+
+  MainFrame:Destroy()
+  
+    for i,v in pairs(game.CoreGui:FindFirstChild("StrenzNotify"):GetChildren()) do
+        if not v:FindFirstChild("MainFrame") then
+            v:Destroy()
+        end
+    end
+    for i,v in pairs(game.CoreGui:GetChildren()) do
+        if v.Name == "StrenzNotify" and not v:FindFirstChild("StrenzNotify") then
+            v:Destroy()
+        end
+    end
+    
+    local StrenzNotify = Instance.new("ScreenGui")
+    StrenzNotify.Name = "StrenzNotify"
+    StrenzNotify.Parent = game.CoreGui
+    StrenzNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+end
+
+return MainHold
