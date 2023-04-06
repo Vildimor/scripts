@@ -1,4 +1,4 @@
-local Madara = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local Flux = {RainbowColorValue = 0, HueSelectionPosition = 0}
 local PresetColor = Color3.fromRGB(66, 134, 255)
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -7,23 +7,23 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local CloseBind = Enum.KeyCode.RightControl
 
-local MadaraLib = Instance.new("ScreenGui")
-MadaraLib.Name = "MadaraLib"
-MadaraLib.Parent = game.CoreGui
-MadaraLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local FluxLib = Instance.new("ScreenGui")
+FluxLib.Name = "FluxLib"
+FluxLib.Parent = game.CoreGui
+FluxLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 coroutine.wrap(
 	function()
 		while wait() do
-			Madara.RainbowColorValue = Madara.RainbowColorValue + 1 / 255
-			Madara.HueSelectionPosition = Madara.HueSelectionPosition + 1
+			Flux.RainbowColorValue = Flux.RainbowColorValue + 1 / 255
+			Flux.HueSelectionPosition = Flux.HueSelectionPosition + 1
 
-			if Madara.RainbowColorValue >= 1 then
-				Madara.RainbowColorValue = 0
+			if Flux.RainbowColorValue >= 1 then
+				Flux.RainbowColorValue = 0
 			end
 
-			if Madara.HueSelectionPosition == 80 then
-				Madara.HueSelectionPosition = 0
+			if Flux.HueSelectionPosition == 80 then
+				Flux.HueSelectionPosition = 0
 			end
 		end
 	end
@@ -87,7 +87,7 @@ end
 
 
 
-function Madara:Window(text, bottom,mainclr,toclose)
+function Flux:Window(text, bottom,mainclr,toclose)
 	CloseBind = toclose or Enum.KeyCode.RightControl
 	PresetColor = mainclr or Color3.fromRGB(66, 134, 255)
 	local fs = false
@@ -104,7 +104,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 	local ContainerFolder = Instance.new("Folder")
 
 	MainFrame.Name = "MainFrame"
-	MainFrame.Parent = MadaraLib
+	MainFrame.Parent = FluxLib
 	MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 	MainFrame.BackgroundColor3 = Color3.fromRGB(50, 53, 59)
 	MainFrame.ClipsDescendants = true
@@ -196,17 +196,17 @@ function Madara:Window(text, bottom,mainclr,toclose)
 					MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					uitoggled = true
 					wait(.5)
-					MadaraLib.Enabled = false
+					FluxLib.Enabled = false
 				else
 					MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-					MadaraLib.Enabled = true
+					FluxLib.Enabled = true
 					uitoggled = false
 				end
 			end
 		end
 	)
 	
-	function Madara:Notification(desc,buttontitle)
+	function Flux:Notification(desc,buttontitle)
 		for i, v in next, MainFrame:GetChildren() do
 			if v.Name == "NotificationBase" then
 				v:Destroy()
@@ -396,8 +396,8 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			{BackgroundTransparency = 0}
 		):Play()
 	end
-	local Shisui = {}
-	function Shisui:Tab(text,ico)
+	local Tabs = {}
+	function Tabs:Tab(text,ico)
 		local Tab = Instance.new("TextButton")
 		local TabIcon = Instance.new("ImageLabel")
 		local TabTitle = Instance.new("TextLabel")
@@ -508,8 +508,8 @@ function Madara:Window(text, bottom,mainclr,toclose)
 				end
 			end
 		end)
-		local Sasuke = {}
-		function Sasuke:Button(text, desc, callback)
+		local ContainerContent = {}
+		function ContainerContent:Button(text, desc, callback)
 			if desc == "" then
 				desc = "There is no description for this button."
 			end
@@ -727,7 +727,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			end)
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
-		function Sasuke:Toggle(text, desc,default, callback)
+		function ContainerContent:Toggle(text, desc,default, callback)
 			local ToggleDescToggled = false
 			local Toggled = false
 			if desc == "" then
@@ -997,7 +997,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
 		
-		function Sasuke:Slider(text,desc,min,max,start,callback)
+		function ContainerContent:Slider(text,desc,min,max,start,callback)
 			local SliderFunc = {}
 			local SliderDescToggled = false
                         local dragging = false
@@ -1297,7 +1297,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			end
 			return SliderFunc
 		end
-		function Sasuke:Dropdown(text,list,callback)
+		function ContainerContent:Dropdown(text,list,callback)
 			local DropFunc = {}
 			local Selected = text
 			local FrameSize = 43
@@ -1775,7 +1775,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			end
 			return DropFunc
 		end
-		function Sasuke:Colorpicker(text,preset,callback)
+		function ContainerContent:Colorpicker(text,preset,callback)
 			local ColorPickerToggled = false
 			local OldToggleColor = Color3.fromRGB(0, 0, 0)
 			local OldColor = Color3.fromRGB(0, 0, 0)
@@ -2216,11 +2216,11 @@ function Madara:Window(text, bottom,mainclr,toclose)
 						OldHueSelectionPosition = HueSelection.Position
 
 						while RainbowColorPicker do
-							BoxColor.BackgroundColor3 = Color3.fromHSV(Madara.RainbowColorValue, 1, 1)
-							Color.BackgroundColor3 = Color3.fromHSV(Madara.RainbowColorValue, 1, 1)
+							BoxColor.BackgroundColor3 = Color3.fromHSV(Flux.RainbowColorValue, 1, 1)
+							Color.BackgroundColor3 = Color3.fromHSV(Flux.RainbowColorValue, 1, 1)
 
 							ColorSelection.Position = UDim2.new(1, 0, 0, 0)
-							HueSelection.Position = UDim2.new(0.48, 0, 0, Madara.HueSelectionPosition)
+							HueSelection.Position = UDim2.new(0.48, 0, 0, Flux.HueSelectionPosition)
 
 							pcall(callback, BoxColor.BackgroundColor3)
 							wait()
@@ -2274,7 +2274,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			)
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
-		function Sasuke:Line()
+		function ContainerContent:Line()
 			local Line = Instance.new("TextButton")
 			local LineCorner = Instance.new("UICorner")
 
@@ -2296,7 +2296,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
-		function Sasuke:Label(text)
+		function ContainerContent:Label(text)
 			local Label = Instance.new("TextButton")
 			local LabelCorner = Instance.new("UICorner")
 			local Title = Instance.new("TextLabel")
@@ -2332,7 +2332,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
-		function Sasuke:Textbox(text,desc,disapper,callback)
+		function ContainerContent:Textbox(text,desc,disapper,callback)
 			if desc == "" then
 				desc = "There is no description for this textbox."
 			end
@@ -2565,7 +2565,7 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			end)
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
-		function Sasuke:Bind(text,presetbind,callback)
+		function ContainerContent:Bind(text,presetbind,callback)
 			local Key = presetbind.Name
 			local Bind = Instance.new("TextButton")
 			local BindCorner = Instance.new("UICorner")
@@ -2742,8 +2742,8 @@ function Madara:Window(text, bottom,mainclr,toclose)
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
-		return Sasuke
+		return ContainerContent
 	end
-	return Shisui
+	return Tabs
 end
-return Madara
+return Flux
