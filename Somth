@@ -105,7 +105,7 @@ function Blacklib:Window(gametitle)
     BlackTitle.Parent = WindowFrame
     BlackTitle.BackgroundColor3 = _G.WindowBackgroundColor
     BlackTitle.BackgroundTransparency = 1.000
-    BlackTitle.Position = UDim2.new(0, 33, 0, 7)
+    BlackTitle.Position = UDim2.new(0, 10, 0, 7)
     BlackTitle.Size = UDim2.new(0, 50, 0, 25)
     BlackTitle.Font = Enum.Font.GothamBold
     BlackTitle.Text = ""
@@ -117,10 +117,10 @@ function Blacklib:Window(gametitle)
     Space.Parent = WindowFrame
     Space.BackgroundColor3 = _G.WindowBackgroundColor
     Space.BackgroundTransparency = 1.000
-    Space.Position = UDim2.new(0, 102, 0, 7)
+    Space.Position = UDim2.new(0, 245, 0, 7)
     Space.Size = UDim2.new(0, 10, 0, 25)
     Space.Font = Enum.Font.GothamBold
-    Space.Text = "    |"
+    Space.Text = "|"
     Space.TextColor3 = Color3.fromRGB(150, 0, 150)
     Space.TextSize = 18.000
     
@@ -128,7 +128,7 @@ function Blacklib:Window(gametitle)
     GameTitle.Parent = WindowFrame
     GameTitle.BackgroundColor3 = _G.WindowBackgroundColor
     GameTitle.BackgroundTransparency = 1.000
-    GameTitle.Position = UDim2.new(0, 114, 0, 7)
+    GameTitle.Position = UDim2.new(0, 255, 0, 7)
     GameTitle.Size = UDim2.new(0, 100, 0, 25)
     GameTitle.Font = Enum.Font.GothamSemibold
     GameTitle.Text = gametitle
@@ -211,8 +211,8 @@ function Blacklib:Window(gametitle)
     PlaLab.Parent = WindowFrame
     PlaLab.BackgroundColor3 = _G.TabWindowColor
     PlaLab.BackgroundTransparency = 1.000
-    PlaLab.Position = UDim2.new(0, 3, 0, 353)
-    PlaLab.Size = UDim2.new(0, 150, 0, 25)
+    PlaLab.Position = UDim2.new(0, 50, 0, 353)
+    PlaLab.Size = UDim2.new(0, 90, 0, 25)
     PlaLab.Font = Enum.Font.GothamSemibold
     PlaLab.Text = "User : " .. name
     PlaLab.TextSize = 13.000
@@ -1845,11 +1845,11 @@ _G.SectionOn = Color3.fromRGB(250, 0, 250)
 
 
 -- Window --
-local Win = Blacklib:Window("Home")
+local Win = Blacklib:Window("BETA TESTING")
 
 -- Main Tab --
 
-local Tabes = Win:Tab("•Main")
+local Tabes = Win:Tab("Home")
 Tabes:Note("")
 Tabes:Note("😝")
 Tabes:Note("Bozo")
